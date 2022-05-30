@@ -49,7 +49,13 @@ Because the end result of the manim code is an animation and not necessarily con
 
 ![add_vectors](https://user-images.githubusercontent.com/106051556/171063456-c9579573-67a6-41ed-b08e-7403824729a2.gif)
 
+### [add_z_values.py](/scripts/add_z_values.py):
 
+![AddZVals_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171068070-135c3baa-1a21-4dd6-91f8-3f8036d611a9.gif)
+
+### [add_position_var.py](/scripts/add_position_var.py):
+
+![AddPosVar_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171067804-7e0cfdde-1861-4fc6-9435-2979cb9bb216.gif)
 
 ### [rename_verts.py](/scripts/rename_verts.py):
 
