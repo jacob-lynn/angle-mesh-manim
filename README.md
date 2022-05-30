@@ -13,8 +13,10 @@ Because the end result of the manim code is an animation and not necessarily con
 
 
 ## Files
+### [filled_angle.py](/scripts/filled_angle.py):
 
+![PolarScene_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171060653-938a4c7a-ea15-41b6-bacd-9cf88bb017c2.gif)
 
-### [rename_verts.py :](/scripts/rename_verts.py)
+### [rename_verts.py](/scripts/rename_verts.py):
 
 ![RenameVerts_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171055521-45f07cad-4c64-4052-b0d3-1fc52e67a531.gif)
