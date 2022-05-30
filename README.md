@@ -21,6 +21,26 @@ Because the end result of the manim code is an animation and not necessarily con
 
 ![AddDots_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171060889-16f5baf1-751c-4e40-9fb0-10823bb29147.gif)
 
+### [triangle.py](/scripts/triangle.py):
+
+![Triangle_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171061296-8fed9327-75fa-4b08-be75-a264afcefc24.gif)
+
+### [tri_nums_static.py](/scripts/tri_nums_static.py):
+
+![TriNumsStatic_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171061696-29d0f044-d787-4c5e-b472-a70714f74385.gif)
+
+### [angle_series.py](/scripts/angle_series.py):
+
+![MovingAngleSeries_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171061903-1b5e5521-62f7-431c-be15-5f71f08902c1.gif)
+
+### [calculus.py](/scripts/calculus.py):
+
+![Calculus_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171062088-cd86e411-2088-4568-aa6f-2f609f0e0139.gif)
+
+### [tri_nums.py](/scripts/tri_nums.py):
+
+![TriNums_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171062207-4041c661-144a-4e40-a369-9b517645ea99.gif)
+
 
 ### [rename_verts.py](/scripts/rename_verts.py):
 
