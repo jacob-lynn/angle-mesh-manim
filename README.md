@@ -39,7 +39,16 @@ Because the end result of the manim code is an animation and not necessarily con
 
 ### [tri_nums.py](/scripts/tri_nums.py):
 
-![TriNums_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171062207-4041c661-144a-4e40-a369-9b517645ea99.gif)
+![TriNums_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171062373-3e8c820e-21fb-4595-bc87-73cf11613413.gif)
+
+### [add_vars.py](/scripts/add_vars.py):
+
+![AddVars_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171064244-23e7f9af-69e5-4de8-9783-791bf76d37ae.gif)
+
+### [add_vectors.py](/scripts/add_vectors.py):
+
+![add_vectors](https://user-images.githubusercontent.com/106051556/171063456-c9579573-67a6-41ed-b08e-7403824729a2.gif)
+
 
 
 ### [rename_verts.py](/scripts/rename_verts.py):
