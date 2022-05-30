@@ -1,6 +1,8 @@
 # angle-mesh-manim
 
-**_ATTENTION:_** I am currently looking for my first job in the tech sector. If you like my work and believe I would be a good fit in your company/institution please do not hesitate to reach out. 
+*** **ATTENTION:** ***
+
+I am currently looking for my first job in the tech sector. If you like my work and believe I would be a good fit in your company/institution please do not hesitate to reach out. 
 
 ## About
 The code in this repository was used to create the animations for [this](https://lynncode.com/how-to-create-an-angle-mesh-in-unity/) blog post on my [website](https://lynncode.com).
@@ -8,7 +10,10 @@ It utilizes the [Manim](https://www.manim.community/) python library. In order t
 
 Each file is a self contained Manim scene that can be run on its own, many of the files have significant overlap with one another as a result. 
 
+If you find inspiration for your own manim project in the files I do ask that you link back to my [website](https://lynncode.com). Thank you!
+
 *** **DISCLAIMER:** ***
+
 Because the end result of the manim code is an animation and not necessarily constrained by efficiency or user interaction, I FULLY embraced the Machiavellian idea of the ends justifying the means. Therefore, many of the scenes are not especially robust, and may produce odd behavior if significantly altered. As always, there is room for improvement. That being said, I am extremely happy with the animations that were produced in the end.
 
 
