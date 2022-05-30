@@ -14,4 +14,7 @@ Because the end result of the manim code is an animation and not necessarily con
 
 ## Files
 
+
+[rename_verts.py :](/scripts/rename_verts.py)
+
 ![RenameVerts_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171055521-45f07cad-4c64-4052-b0d3-1fc52e67a531.gif)
