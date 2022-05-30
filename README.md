@@ -9,7 +9,7 @@ It utilizes the [Manim](https://www.manim.community/) python library. In order t
 Each file is a self contained Manim scene that can be run on its own, many of the files have significant overlap with one another as a result. 
 
 *** **DISCLAIMER:** ***
-Because the end result of the manim code is an animation and not necessarily constrained by efficiency or user interaction, I fully embraced the Machiavellian idea of the ends justifying the means. Therefore, many of the scenes are not especially robust, and may produce odd behavior if significantly altered. As always, there is room for improvement. That being said, I am extremely happy with the animations that were produced in the end.
+Because the end result of the manim code is an animation and not necessarily constrained by efficiency or user interaction, I FULLY embraced the Machiavellian idea of the ends justifying the means. Therefore, many of the scenes are not especially robust, and may produce odd behavior if significantly altered. As always, there is room for improvement. That being said, I am extremely happy with the animations that were produced in the end.
 
 
 ## Files
