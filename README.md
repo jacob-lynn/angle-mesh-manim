@@ -3,7 +3,7 @@
 **_ATTENTION:_** I am currently looking for my first job in the tech sector. If you like my work and believe I would be a good fit in your company/institution please do not hesitate to reach out. 
 
 ## About
-The code in this repository was used to create the animations for [this](https://lynncode.com/how-to-create-an-angle-mesh-in-unity/) blog post on my website.
+The code in this repository was used to create the animations for [this](https://lynncode.com/how-to-create-an-angle-mesh-in-unity/) blog post on my [website](https://lynncode.com).
 It utilizes the [Manim](https://www.manim.community/) python library. In order to run the code you will need to have manim and python installed on your machine.
 
 Each file is a self contained Manim scene that can be run on its own, many of the files have significant overlap with one another as a result. 
