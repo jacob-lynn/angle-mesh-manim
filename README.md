@@ -17,6 +17,11 @@ Because the end result of the manim code is an animation and not necessarily con
 
 ![PolarScene_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171060653-938a4c7a-ea15-41b6-bacd-9cf88bb017c2.gif)
 
+### [add_dots.py](/scripts/add_dots.py):
+
+![AddDots_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171060889-16f5baf1-751c-4e40-9fb0-10823bb29147.gif)
+
+
 ### [rename_verts.py](/scripts/rename_verts.py):
 
 ![RenameVerts_ManimCE_v0 15 0](https://user-images.githubusercontent.com/106051556/171055521-45f07cad-4c64-4052-b0d3-1fc52e67a531.gif)
