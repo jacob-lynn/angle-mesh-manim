@@ -5,9 +5,8 @@ class Calculus(Scene):
     def construct(self):    
           
             angle = 140  
-               
+            Cross()
             num_of_tris = ValueTracker(1)
-            
             line1 = Line(LEFT, RIGHT*2)
             line2 = Line(LEFT, line1.get_end())           
             circle = Circle(radius=line1.get_length()).move_to(line1.get_start())       

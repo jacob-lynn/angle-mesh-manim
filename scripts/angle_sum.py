@@ -1,8 +1,7 @@
 from manim import *
 import numpy as np 
 
-
-class FilledAngle(Scene):
+class AngleSum(Scene):
     def construct(self):
         
         rotation_center = LEFT
@@ -17,10 +16,17 @@ class FilledAngle(Scene):
 
         angleFromPos = Angle(line1,line_moving,radius=line1.get_length(), color=BLUE)
         angleFromNeg = Angle(line1,line_moving,radius=line1.get_length(), other_angle=True, color=RED)
-        a = Angle(line1, line_moving, radius=0.5, other_angle=False)
-        tex = MathTex(r"\theta", color=BLUE).move_to(
+        a = Angle(line1, line_moving, radius=0.5, other_angle=False, color=BLUE)
+        b = Angle(line1, line_moving, radius=0.4, other_angle=True, color=RED)
+        theta = MathTex(r"\theta", color=BLUE).move_to(
             Angle(
                 line1, line_moving, radius=0.5 + 3 * SMALL_BUFF, other_angle=False
+            ).point_from_proportion(0.5)
+        )
+
+        phi = MathTex(r"\phi", color=RED).move_to(
+            Angle(
+                line1, line_moving, radius=0.4 + 3 * SMALL_BUFF, other_angle=True
             ).point_from_proportion(0.5)
         )
         # q1 = angleFromPos.points        
@@ -40,7 +46,7 @@ class FilledAngle(Scene):
                                            fill_opacity=0.4,
                                            color=RED).shift(LEFT)                                           
 
-        self.add(filledAngleFromPos, filledAngleFromNeg, line1, line_moving, a, tex, angleFromNeg, angleFromPos)
+        self.add(filledAngleFromPos, filledAngleFromNeg, line1, line_moving, a, b, theta, phi, angleFromNeg, angleFromPos)
         self.wait()
 
         line_moving.add_updater(
@@ -73,9 +79,15 @@ class FilledAngle(Scene):
         )
 
         a.add_updater(
-            lambda x: x.become(Angle(line1, line_moving, radius=0.5, other_angle=False))
+            lambda x: x.become(Angle(line1, line_moving, radius=0.5, other_angle=False, color=BLUE))
         )
-        tex.add_updater(
+
+        b.add_updater(
+            lambda x: x.become(Angle(line1, line_moving, radius=0.4, other_angle=True, color=RED))
+        )
+        
+
+        theta.add_updater(
             lambda x: x.move_to(
                 Angle(
                     line1, line_moving, radius=0.5 + 3 * SMALL_BUFF, other_angle=False
@@ -83,11 +95,19 @@ class FilledAngle(Scene):
             )
         )
 
+        phi.add_updater(
+            lambda x: x.move_to(
+                Angle(
+                    line1, line_moving, radius=0.4 + 3 * SMALL_BUFF, other_angle=True
+                ).point_from_proportion(0.5)
+            )
+        )
+
         
         self.play(theta_tracker.animate.set_value(40))
         self.play(theta_tracker.animate.increment_value(140))
-        self.play(tex.animate.set_color(RED), run_time=0.5)
-        self.play(theta_tracker.animate.set_value(350))
+        # self.play(tex.animate.set_color(RED), run_time=0.5)
+        self.play(theta_tracker.animate.set_value(320))
         
         # r = Line(ORIGIN, RIGHT*3)
         # x = r.copy()
@@ -107,5 +127,5 @@ class FilledAngle(Scene):
         
         
         
-x = FilledAngle()
+x = AngleSum()
 x.render
