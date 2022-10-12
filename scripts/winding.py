@@ -6,6 +6,17 @@ class Winding(Scene):
         
         rotation_center = LEFT
 
+        polarplane_pi = PolarPlane(
+            azimuth_units="degrees",
+            size=5.35,
+            azimuth_label_font_size=0.1,
+            azimuth_step=12,
+            azimuth_direction="CCW",
+            radius_config={"font_size":0.1,
+                            "stroke_opacity":0.5},
+            background_line_style={"stroke_opacity":0.3},
+        ).add_coordinates().shift(LEFT)
+
         theta_tracker = ValueTracker(0.1)
         line1 = Line(LEFT, RIGHT)
         line_moving = Line(LEFT, RIGHT)
@@ -27,6 +38,12 @@ class Winding(Scene):
                 line1, line_moving, radius=0.5 + 3 * SMALL_BUFF, other_angle=False
             ).point_from_proportion(0.5)
         )
+
+        phi = MathTex(r"\phi", color=RED).move_to(
+            Angle(
+                line1, line_moving, radius=0.4 + 3 * SMALL_BUFF, other_angle=True
+            ).point_from_proportion(0.5)
+        )
         # q1 = angleFromPos.points        
         # q2 = line_moving.reverse_points().points
         # q3 = line1.points
@@ -45,7 +62,7 @@ class Winding(Scene):
                                            fill_opacity=0.4,
                                            color=RED).shift(LEFT)                                           
 
-        self.add(line1, line_moving, arcFromPos, line_static)
+        self.add(polarplane_pi, line1, line_moving, arcFromPos, line_static)
         self.add_foreground_mobject(theta)
         self.wait()
 
@@ -101,41 +118,37 @@ class Winding(Scene):
             )
         )
 
+        phi.add_updater(
+            lambda x: x.move_to(
+                Angle(
+                    line1, line_moving, radius=0.4 + 3 * SMALL_BUFF, other_angle=True
+                ).point_from_proportion(0.5)
+            )
+        )
+
+
         arcFromPos = always_redraw(get_arc_from_pos)
         self.add(filledAngleFromPos)
 
-        self.play(theta_tracker.animate.set_value(110))
+        self.play(theta_tracker.animate(run_time=2.5).set_value(110))
         self.wait(2)
-        self.play(theta_tracker.animate.set_value(470))
+        self.play(theta_tracker.animate(run_time=3).set_value(470))
         self.wait(2)
-        self.play(theta_tracker.animate.set_value(110))
-        # self.wait(2)
+        self.play(theta_tracker.animate(run_time=3).set_value(110))
+        self.wait(2)
         # theta_tracker.set_value(110)
         arcFromNeg = always_redraw(get_arc_from_neg)
         filledAngleFromNeg.update()
-        self.add(arcFromNeg, filledAngleFromNeg)
+        phi.update()
+        self.add(arcFromNeg, filledAngleFromNeg, phi)
         
-        self.remove(arcFromPos, filledAngleFromPos)
+        self.remove(arcFromPos, filledAngleFromPos, theta)
         self.wait(2)
         
-        self.play(theta_tracker.animate.set_value(-250))
+        self.play(theta_tracker.animate(run_time=3).set_value(-250))
         self.wait(2)
-        self.play(theta_tracker.animate.set_value(110))
-        # self.play(theta_tracker.animate.set_value(-610))
-        # x = r.copy()
-                
-        # r.rotate_about_origin(140*DEGREES)
+        self.play(theta_tracker.animate(run_time=3).set_value(110))
         
-        # dot = Dot(r.get_end())
-        
-        # a = Angle(x,r, radius=0.5)
-        # angleFromPos = Angle(x,r,radius=r.get_length())
-        
-        
-        # self.add(mfill)
-        # self.add(r,x,a,dot,angleFromPos) 
-
-        # TODO: Show revolution count and angle values
         self.wait()
     
 x = Winding()

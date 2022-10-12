@@ -8,8 +8,8 @@ class MovingAngleSeries(Scene):
         angle = 140  
         theta_tracker = ValueTracker(0.1)        
         
-        plane = NumberPlane(x_range=[-50,50],
-                            y_range=[-50,50]).shift(LEFT)
+        # plane = NumberPlane(x_range=[-50,50],
+        #                     y_range=[-50,50]).shift(LEFT)
         
         def angle_factory(num_of_tris, center=[0,0,0]):
             
@@ -88,7 +88,7 @@ class MovingAngleSeries(Scene):
         
          
         config.frame_width = 40
-        self.add(plane)
+        # self.add(plane)
         
         self.add_foreground_mobjects(groups)
         

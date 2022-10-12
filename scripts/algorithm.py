@@ -4,20 +4,25 @@ import numpy as np
 class Algorithm(Scene):
     def construct(self):
         
+#         code = '''from manim import Scene, Square
+
+# class FadeInSquare(Scene):
+#     def construct(self):
+#          = Square()
+#         self.play(FadeIn(s))
+#         self.play(s.animate.scale(2))
+#         self.wait()
+# '''
+        # rendered_code = Code(code=code, tab_width=4, background="window",
+        #                     language="cs", font="Monospace", style="Monokai")
+
         rotation_center = LEFT
-        angle = 80 
+        angle = 140
         num_of_tris = 3
         sub_angle = angle / num_of_tris
 
-        code = '''class Mesh(): 
-meshResolution = 0.0375f //lower the number the higher the resolution
-angleFromPoint = 80 //passed from active point 
-subAngle = angleFromPoint * meshResolution'''
-
-        pseudo_code = Code(code, language='python').move_to(UR)
-
-        number_plane = NumberPlane(background_line_style={"stroke_opacity":0}).shift(LEFT)
-            
+        number_plane = NumberPlane(background_line_style={"stroke_opacity":0},axis_config={"stroke_opacity":0.4}).shift(LEFT)
+        
         theta_tracker = ValueTracker(angle)
         line1 = Line(LEFT, RIGHT*2)
         line_moving = Line(LEFT, line1.get_end())
@@ -60,7 +65,7 @@ subAngle = angleFromPoint * meshResolution'''
         
     
         bg_objects = VGroup(line1,line_moving,edge, number_plane)
-        fg_objects = VGroup(a,dots,nums, pseudo_code) 
+        fg_objects = VGroup(a,dots,nums) 
         self.add(bg_objects)     
         self.add_foreground_mobjects(fg_objects)    
         

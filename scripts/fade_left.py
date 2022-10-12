@@ -1,7 +1,7 @@
 from manim import *
 import numpy as np 
 
-class RevCounter(Scene):
+class FadeLeft(Scene):
     def construct(self):
         polarplane_pi = PolarPlane(
             azimuth_units="degrees",
@@ -14,14 +14,17 @@ class RevCounter(Scene):
             background_line_style={"stroke_opacity":0.3},
         ).add_coordinates()
         
+        
+
         quad1_label = MathTex(r'(+, +)').shift(UR*1.5)
         quad2_label = MathTex(r'(-, +)').shift(UL*1.5)
         quad3_label = MathTex(r'(-, -)').shift(DL*1.5)
         quad4_label = MathTex(r'(+, -)').shift(DR*1.5)
 
-        labels = VGroup(quad1_label, quad2_label, quad3_label, quad4_label)
+       
 
         polarplane_pi.remove()
-        self.add(polarplane_pi, labels)
+        self.add(polarplane_pi, quad1_label, quad2_label, quad3_label, quad4_label)
         self.wait()
-        self.play(FadeOut(labels[1], labels[2]), Indicate(labels[0],labels[3]))
+        self.play(FadeOut(quad2_label, quad3_label))
+        self.wait()
