@@ -29,8 +29,6 @@ class Triangle(Scene):
         curve_a = CurvedArrow(circle_a.point_at_angle(70*DEGREES),circle_a.point_at_angle(90*DEGREES), tip_shape=ArrowTriangleTip, angle=-340*DEGREES).move_to(text_a).scale(0.3)
         curve_b = CurvedArrow(circle_b.point_at_angle(110*DEGREES),circle_b.point_at_angle(90*DEGREES), tip_shape=ArrowTriangleTip, angle=340*DEGREES).move_to(text_b).scale(0.3)
         
-        
-
         labels = VGroup(Text('0',font_size=20).next_to(dots[0], SMALL_BUFF*DL),
                         Text('2',font_size=20).next_to(dots[1], SMALL_BUFF*UR),
                         Text('1',font_size=20).next_to(dots[2], SMALL_BUFF*DR))
@@ -38,7 +36,6 @@ class Triangle(Scene):
         
         self.add(text_a,text_b,curve_a,curve_b)
               
-
         self.add(labels.shift(2*LEFT),labels2.shift(2*RIGHT))
         self.add_foreground_mobjects(dots.shift(2*LEFT),dots2.shift(2*RIGHT))
         self.play(LaggedStart(DrawBorderThenFill(tri),FadeIn(indices_a),lag_ratio=1))

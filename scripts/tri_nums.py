@@ -38,7 +38,6 @@ class TriNums(MovingCameraScene):
             array_of_tris[t,1,:] = array_of_points[t+1,:] 
             array_of_tris[t,2,:] = array_of_points[t+2,:]                               
 
-
         dots = VGroup(*[Dot(i)
                         for i in array_of_points])
 
@@ -53,12 +52,10 @@ class TriNums(MovingCameraScene):
                         Integer(1).next_to(dots[1],RIGHT))
         nums.add(*[Integer(i).move_to(array_of_nums[i])
                                 for i in range(2, num_of_tris+2)])
-        
 
         self.add(line1, line_moving, tris, edge)     
         self.add_foreground_mobjects(a, dots, nums)    
         self.add(theta_tracker.set_value(140))   
-        
        
         tri_nums = VGroup()
         tri_nums.add(*[Integer(i).set_color(BLUE).move_to(tri_num_arc.point_from_proportion((i * 1/int(num_of_tris))+ 0.5*(1/int(num_of_tris))))
@@ -67,10 +64,8 @@ class TriNums(MovingCameraScene):
         tri_nums[1].set_color(GREEN)
         tri_nums[2].set_color(PURPLE)
         self.add(tri_nums)    
-        
        
         self.camera.frame_center = dots[0].get_center()
-               
         
         horizontal_line = Line(LEFT*3,RIGHT*2).next_to(circle,UR+RIGHT*6)
         vertical_line = Line(horizontal_line.get_midpoint()+UP*0.5, horizontal_line.get_midpoint()+DOWN*2)
@@ -85,7 +80,6 @@ class TriNums(MovingCameraScene):
         tri_table_nums[0].set_color(RED)
         tri_table_nums[1].set_color(GREEN)
         tri_table_nums[2].set_color(PURPLE)
-        
         
         table_nums = VGroup()
         for i in range(num_of_tris):
@@ -119,8 +113,6 @@ class TriNums(MovingCameraScene):
             per_tri_anim_group[i,1] = highlight_dots_and_nums_anims(i)
             per_tri_anim_group[i,2] = move_tri_num(i)
             per_tri_anim_group[i,3] = move_nums_and_fade_brackets(i)
-            
-                        
         
         self.play(per_tri_anim_group[0,0])
         self.play(per_tri_anim_group[0,1])
@@ -134,7 +126,6 @@ class TriNums(MovingCameraScene):
         self.play(per_tri_anim_group[2,1])
         self.play(per_tri_anim_group[2,2])
         self.play(per_tri_anim_group[2,3])
-        
         self.wait(2)
        
 x = TriNums()

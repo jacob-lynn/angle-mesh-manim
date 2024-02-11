@@ -37,7 +37,6 @@ class Calculus(Scene):
             curve = ax.plot(lambda x: 0.1 * (x + 3-5) * (x - 3-5) * (x-5) + 5, 
                             x_range=[1,9],
                             color=WHITE)          
-            
            
             def get_dots_and_tris():
                 
@@ -75,11 +74,9 @@ class Calculus(Scene):
                                                         stroke_width=DEFAULT_STROKE_WIDTH,
                                                         fill_opacity=0.2)
                 return riemann_area
-            
 
             dots_and_tris = always_redraw(get_dots_and_tris)
             riemann_area = always_redraw(get_rects)
-            
 
             self.add(circle_vgroup)
             self.add_foreground_mobjects(dots_and_tris)    

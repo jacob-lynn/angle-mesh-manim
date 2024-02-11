@@ -8,16 +8,12 @@ class MovingAngleSeries(Scene):
         angle = 140  
         theta_tracker = ValueTracker(0.1)        
         
-        # plane = NumberPlane(x_range=[-50,50],
-        #                     y_range=[-50,50]).shift(LEFT)
-        
         def angle_factory(num_of_tris, center=[0,0,0]):
             
             sub_angle = angle / num_of_tris
                  
             line1 = Line(center, (center+RIGHT*3))
             line_moving = Line(center, line1.get_end())
-            line_ref = line_moving.copy()
             line_moving.rotate(
                 theta_tracker.get_value() * DEGREES, about_point=center
             )
@@ -40,7 +36,6 @@ class MovingAngleSeries(Scene):
                 array_of_tris[t,1,:] = array_of_points[t+1,:] 
                 array_of_tris[t,2,:] = array_of_points[t+2,:]                               
 
-            
             line_moving.add_updater(
                 lambda x: x.become(line_ref.copy()).rotate(
                     theta_tracker.get_value() * DEGREES, about_point=center
@@ -76,7 +71,6 @@ class MovingAngleSeries(Scene):
             angle_group = VGroup(line1, line_moving, origin, first_point,a,edge, label,dots,tris)
             
             return angle_group, dots_and_tris_anim
-        
     
         group1, anim1 = angle_factory(1, LEFT*13)
         group2, anim2 = angle_factory(2, LEFT*7)
@@ -86,9 +80,7 @@ class MovingAngleSeries(Scene):
 
         groups = VGroup(group1,group2,group3,group4,group5)
         
-         
         config.frame_width = 40
-        # self.add(plane)
         
         self.add_foreground_mobjects(groups)
         
@@ -105,9 +97,7 @@ class MovingAngleSeries(Scene):
                                                         lag_ratio=0.2))),
                              lag_ratio=0.25))
         
-        
         self.wait(2)
-        
       
 x = MovingAngleSeries()
 x.render()                    

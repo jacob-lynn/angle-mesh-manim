@@ -39,7 +39,6 @@ class RenameVerts(MovingCameraScene):
                 array_of_tris[t,1,:] = array_of_points[t+1,:] 
                 array_of_tris[t,2,:] = array_of_points[t+2,:]                               
 
-            
             dots = VGroup(*[Dot(i)
                             for i in array_of_points])
 
@@ -49,7 +48,6 @@ class RenameVerts(MovingCameraScene):
             tris[0].set_fill(RED_C,opacity=0.4)
             tris[1].set_fill(GREEN_C,opacity=0.4)
             tris[2].set_fill(PURPLE_C,opacity=0.4)
-            
 
             nums = VGroup(Integer(0).next_to(dots[0],DL*0.5),
                             Integer(1).next_to(dots[1],RIGHT))
@@ -65,7 +63,6 @@ class RenameVerts(MovingCameraScene):
             tri_nums[1].set_color(GREEN)
             tri_nums[2].set_color(PURPLE) 
             self.add(tri_nums)    
-            
             
             angle_group = VGroup(line1, line_moving, tris, tri_nums, edge,a, dots)
             
@@ -90,7 +87,6 @@ class RenameVerts(MovingCameraScene):
             indices_var.arrange_in_grid(rows=1, cell_alignment=[0,-1,0], buff=MED_SMALL_BUFF).next_to(triangles_var,DOWN*0.5).scale(0.75)
             indices_var_label = Text('indices =', font_size=25).next_to(indices_var,LEFT).scale(0.75)
             
-            
             plane = NumberPlane(x_range=[-20,20],
                                 y_range=[-20,20],                                
                                 background_line_style={
@@ -101,8 +97,6 @@ class RenameVerts(MovingCameraScene):
                                 plane.get_y_axis_label("y").move_to(self.camera.frame_center + [MED_SMALL_BUFF,self.camera.frame_height/2 - MED_SMALL_BUFF,0]))
             axis_labels = always_redraw(redraw_axis_labels)    
             
-            
-           
             coords_3d = []
             for d in dots:
                 coords_3d.append(VGroup(Text('(',font_size=25),
@@ -128,24 +122,20 @@ class RenameVerts(MovingCameraScene):
             vertices_var.remove(vertices_var[-1])
             vertices_var.add(Text(']',font_size=25))
             
-            
             self.add(plane,coords_3d_0, coords_3d_1, coords_3d_2, coords_3d_3, coords_3d_4)
             
             triangles_var.arrange_in_grid(rows=1, cell_alignment=[0,-1,0], buff=LARGE_BUFF*1.03).shift(UP*0.4).scale(0.75)
             triangles_label.next_to(triangles_var,LEFT).scale(0.75)
             vertices_var.arrange_in_grid(rows=1,cell_alignment=[0,-1,0], buff=MED_SMALL_BUFF).next_to(indices_var, DOWN*4).scale(0.75)    
             vertices_label = Text('vertices =', font_size=25).next_to(vertices_var, LEFT).scale(0.75)
-            
         
             braces_2 = VGroup()
             for i in range(vertices_var.__len__()):
                 if (i%2!=0):
                     braces_2.add(Brace(vertices_var[i],UP))
-            
            
             black_rectangle = Rectangle(color=BLACK, fill_opacity=1 ,height=3,width=13).shift(DOWN*3.25)
             black_rectangle_2 = Rectangle(color=BLACK, fill_opacity=1 ,height=1.25,width=13).shift(DOWN*2.35)
-                       
                   
             self.add(axis_labels)
             
@@ -174,7 +164,6 @@ class RenameVerts(MovingCameraScene):
             purple_lines = VGroup(Line(indices_var[13].get_bottom(),braces_2[0].get_tip(),buff=SMALL_BUFF,color=PURPLE),
                                Line(indices_var[15].get_bottom(),braces_2[4].get_tip(),buff=SMALL_BUFF,color=PURPLE),
                                Line(indices_var[17].get_bottom(),braces_2[3].get_tip(),buff=SMALL_BUFF,color=PURPLE))
-            
            
             self.add(red_lines,green_lines,purple_lines,braces)
             
@@ -190,7 +179,6 @@ class RenameVerts(MovingCameraScene):
                       black_rectangle.animate.become(black_rectangle_2))
             
             self.wait(3)
-            
             
 x = RenameVerts()
 x.render()

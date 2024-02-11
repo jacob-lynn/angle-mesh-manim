@@ -36,7 +36,6 @@ class AddZVals(ThreeDScene):
             for t in range(num_of_tris):
                 array_of_tris[t,1,:] = array_of_points[t+1,:] 
                 array_of_tris[t,2,:] = array_of_points[t+2,:]                               
-
             
             dots = VGroup(*[Dot(i)
                             for i in array_of_points])
@@ -53,7 +52,6 @@ class AddZVals(ThreeDScene):
                                     for i in range(2, num_of_tris+2)])
             
             nums.shift(RIGHT)   
-         
              
             tri_nums = VGroup()
             tri_nums.add(*[Integer(i).set_color(BLUE).move_to(tri_num_arc.point_from_proportion((i * 1/int(num_of_tris))+ 0.5*(1/int(num_of_tris))))
@@ -62,8 +60,6 @@ class AddZVals(ThreeDScene):
             tri_nums[1].set_color(GREEN)
             tri_nums[2].set_color(PURPLE)  
             self.add(tri_nums)    
-            
-         
             
             angle_group = VGroup(line1, line_moving, tris, tri_nums, edge,a, dots)
             
@@ -75,7 +71,6 @@ class AddZVals(ThreeDScene):
                                     'stroke_opacity':0.75}).set_z_index(0)
             self.add(plane.get_x_axis_label("x").move_to([self.camera.frame_width/2-MED_SMALL_BUFF,MED_SMALL_BUFF,0],aligned_edge=RIGHT))
             self.add(plane.get_y_axis_label("y").shift(UP*0.6))
-            
            
             coords_2d = VGroup()
             for d in dots:
@@ -132,8 +127,6 @@ class AddZVals(ThreeDScene):
                       )
             self.play(z_vals.animate.set_color(WHITE))
             self.wait(2)
-            
- 
             
 x = AddZVals()
 x.render()

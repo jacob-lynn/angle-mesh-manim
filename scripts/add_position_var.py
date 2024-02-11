@@ -102,7 +102,6 @@ class AddPosVar(MovingCameraScene):
                                 y_range=[-20,20],                                
                                 background_line_style={
                                     'stroke_opacity':0.75})
-      
             
             def redraw_labels():
                 return  VGroup(plane.get_x_axis_label("x").move_to([self.camera.frame_width/2-MED_SMALL_BUFF,MED_SMALL_BUFF,0],aligned_edge=RIGHT),
@@ -129,12 +128,12 @@ class AddPosVar(MovingCameraScene):
             coords_3d_4 = coords_3d[4].arrange_in_grid(rows=1, cell_alignment=[0,-1,0], buff=(SMALL_BUFF)).move_to(nums[4]).next_to(nums[4],LEFT*0.4,aligned_edge=DR)
             
             vertices_var = VGroup(Text('[',font_size=25))
-            # vertices_var.add(*coords_3d.copy())
+            
             for i in range(num_of_tris+2):
                 vertices_var.add(coords_3d[i].copy(),Text(',',font_size=25))
+
             vertices_var.remove(vertices_var[-1])
-            vertices_var.add(Text(']',font_size=25))
-            
+            vertices_var.add(Text(']',font_size=25))           
             
             self.add(plane,coords_3d_0, coords_3d_1, coords_3d_2, coords_3d_3, coords_3d_4)
             
@@ -144,17 +143,15 @@ class AddPosVar(MovingCameraScene):
             
             def redraw_vertices_label():
                 return Text('vertices =', font_size=25).next_to(vertices_var, LEFT).scale(0.75)
-            vertices_label = always_redraw(redraw_vertices_label)        
-            
-            
+            vertices_label = always_redraw(redraw_vertices_label) 
+                        
             def move_coords_nums_to_var():
                 coord_nums_to_var_anim = []
                 for i in range(dots.__len__()):
                     coord_nums_to_var_anim.append(Indicate(coords_3d[i]))
                     coord_nums_to_var_anim.append(TransformFromCopy(coords_3d[i], vertices_var[i*2+1]))
                 return coord_nums_to_var_anim
-                    
-            
+                                
             def fade_in_vector_brackets():
                 vector_brackets_anim = []
                 for i in range(vertices_var.__len__()):
@@ -172,9 +169,7 @@ class AddPosVar(MovingCameraScene):
             self.play(LaggedStart(LaggedStart(*move_coords_nums_to_var(),lag_ratio=0.2),
                                   FadeIn(vertices_label),
                                   LaggedStart(*(_ for _ in fade_in_vector_brackets()),lag_ratio=0.2),
-                                lag_ratio=0.2))
-            
-           
+                                lag_ratio=0.2))                   
             
             self.play(triangles_label.animate.align_to(vertices_label,RIGHT),
                       indices_var_label.animate.align_to(vertices_label,RIGHT),
@@ -204,9 +199,7 @@ class AddPosVar(MovingCameraScene):
             self.play(Create(red_lines[0]),Create(red_lines[1]),Create(red_lines[2]))
             self.play(Create(green_lines[0]),Create(green_lines[1]),Create(green_lines[2]))
             self.play(Create(purple_lines[0]),Create(purple_lines[1]),Create(purple_lines[2]))
-            self.wait(3)
-            
-            
+            self.wait(3)       
             
 x = AddPosVar()
 x.render()

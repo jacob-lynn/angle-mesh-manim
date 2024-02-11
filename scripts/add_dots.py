@@ -1,7 +1,6 @@
 from manim import *
 import numpy as np 
 
-
 class AddDots(Scene):
     def construct(self):
         
@@ -10,7 +9,6 @@ class AddDots(Scene):
         num_of_tris = 7
         sub_angle = angle / num_of_tris
         
-                
         theta_tracker = ValueTracker(0.1)
         line1 = Line(ORIGIN, RIGHT*3, color=GRAY_A)
         line_moving = Line(ORIGIN, line1.get_end(), color=GRAY_A)
@@ -18,7 +16,6 @@ class AddDots(Scene):
         line_moving.rotate(
             theta_tracker.get_value() * DEGREES, about_point=rotation_center
         )
-        
         
         a = Angle(line1, line_moving, radius=0.5, other_angle=False)
         circle = Circle(radius=line1.get_length())
@@ -40,7 +37,6 @@ class AddDots(Scene):
             array_of_tris[t,1,:] = array_of_points[t+1,:] 
             array_of_tris[t,2,:] = array_of_points[t+2,:]                               
 
-        
         line_moving.add_updater(
             lambda x: x.become(line_ref.copy()).rotate(
                 theta_tracker.get_value() * DEGREES, about_point=rotation_center
@@ -54,14 +50,11 @@ class AddDots(Scene):
         edge.add_updater(
             lambda x: x.become(Angle(line1, line_moving, radius=line1.get_length(), other_angle=False, color=GRAY_A))
         )
-        
-        
 
         origin = Dot(array_of_points[0])        
         first_point = Dot(array_of_points[1])
         array_of_points = np.delete(array_of_points, [0,1], 0)
-             
-
+        
         dots = VGroup(*[Dot(i)
                         for i in array_of_points])
         
@@ -69,7 +62,6 @@ class AddDots(Scene):
                         Integer(1).next_to(first_point,RIGHT))
         nums.add(*[Integer(i).move_to(array_of_nums[i])
                                 for i in range(2, num_of_tris+2)])
-
         
         self.add(line1, line_moving, edge)     
         self.add_foreground_mobjects(a, first_point, origin)    
@@ -80,9 +72,7 @@ class AddDots(Scene):
         
         self.play(FadeIn(nums))
         
-        self.wait(2)
-        
-       
+        self.wait(2)     
         
 x = AddDots()
 x.render
